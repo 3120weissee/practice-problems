@@ -75,4 +75,9 @@ const testCases = [
   [nodeSix, undefined, 1]
 ]
 
-testFunction(findUnivalTrees, testCases)
+// testFunction(findUnivalTrees, testCases)
+
+module.exports = function easyB() {
+  console.log('\nRun Easy B')
+  testFunction(findUnivalTrees, testCases)
+}

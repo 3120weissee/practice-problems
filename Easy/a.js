@@ -40,4 +40,9 @@ const testCases = [
 	[[17, -2], 15, true]
 ]
 
-testFunction(sumChecker, testCases)
+// testFunction(sumChecker, testCases)
+
+module.exports = function easyA() {
+	console.log('\nRun Easy A')
+	testFunction(sumChecker, testCases)
+}
