@@ -1,7 +1,8 @@
 module.exports = function testFunction(functionForTest, testCases, log) {
   for(let i = 0; i < testCases.length; i++) {
+    const expectedResult = testCases[i][testCases[i].length-1]
     const result = functionForTest(...testCases[i])
-    const testPasses = result === testCases[i][testCases[i].length-1]
+    const testPasses = result === expectedResult
 
     if(testPasses) {
       console.log(`Test #${i+1}: ${testPasses}`)
@@ -10,7 +11,8 @@ module.exports = function testFunction(functionForTest, testCases, log) {
     }
 
     if(log || !testPasses) {
-      console.log(result)
+      console.log('\tExpect:\t', expectedResult)
+      console.log('\tActual:\t', result)
     }
   }
 }

@@ -1,8 +1,10 @@
 const easyA = require('./Easy/a')
 const easyB = require('./Easy/b')
 const mediumA = require('./Medium/a')
+const mediumC = require('./Medium/c')
 
 easyA()
 easyB()
 mediumA()
+mediumC()
 console.log('')

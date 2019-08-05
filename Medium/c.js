@@ -9,6 +9,7 @@ You can assume that the messages are decodable. For example, '001' is not allowe
 ***************************************************************************************************************/
 
 const TwoWayMap = require('../utils/twoWayMap')
+const testFunction = require('../utils/testHelper')
 
 const alphabet = [
   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
@@ -24,6 +25,25 @@ const alphaValues = [
 
 const alphaMap = new TwoWayMap(alphabet, alphaValues)
 
+const decode = (value) => alphaMap.getValue(value)
+
 const decodeMessage = (message) => {
-  
+  if(message === '') return 1
+  const firstCharCheck = decode(message.substring(0, 1)) ? decodeMessage(message.substring(1)) : 0
+  const firstTwoCheck = message.length > 1 && decode(message.substring(0, 2)) ? decodeMessage(message.substring(2)) : 0
+  return firstCharCheck + firstTwoCheck
+}
+
+const decodeMessagesTestCases = [
+  ['111', 3],
+  ['1', 1],
+  ['26', 2],
+  ['36', 1]
+]
+
+// testFunction(decodeMessage, decodeMessagesTestCases)
+
+module.exports = function mediumC() {
+  console.log('\nRun Medium C')
+  testFunction(decodeMessage, decodeMessagesTestCases)
 }
